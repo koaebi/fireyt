@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="zh-TW">
+    <script async src="/lib/tagmng3.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/lib/rapidz.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../lib/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../lib/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../lib/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../lib/favicon/manifest.json">
+    <link rel="mask-icon" href="../../lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico">
+    <meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>在線平方根計算器（√）</title>
+    <meta name="description" content="在線平方根計算器。計算x的平方根。輸入輸入數字（x），然後按=按鈕。">
+    <style>
+        .calc td {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .calc span {
+            font-size: xx-large;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        .calc select {
+            font-size: x-large;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        .calc input {
+            font-size: x-large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .calc input[type=text] {
+            width: 100%;
+        }
+        
+        @media all and (max-width: 576px) {
+            .calc {
+                width: 100%;
+                padding: 8px;
+            }
+            .calc input[type=number] {
+                width: 140px;
+            }
+            #y2 {
+                width: 210px;
+            }
+        }
+        
+        @media all and (min-width: 577px) {
+            .calc {
+                padding: 20px;
+            }
+            .calc input[type=number] {
+                width: 200px;
+            }
+            .calc input[type=button],
+            .calc input[type=reset] {
+                font-size: large;
+            }
+            #y2 {
+                width: 290px;
+            }
+        }
+    </style>
+
+    <link rel="alternate" hreflang="es" href="https://www.rapidtables.org/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ar" href="https://www.rapidtables.org/ar/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="bg" href="https://www.rapidtables.org/bg/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="bn" href="https://www.rapidtables.org/bn/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ca" href="https://www.rapidtables.org/ca/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="cs" href="https://www.rapidtables.org/cs/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="da" href="https://www.rapidtables.org/da/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="de" href="https://www.rapidtables.org/de/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="el" href="https://www.rapidtables.org/el/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="et" href="https://www.rapidtables.org/et/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="fi" href="https://www.rapidtables.org/fi/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="tl" href="https://www.rapidtables.org/tl/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.rapidtables.org/fr/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="gu" href="https://www.rapidtables.org/gu/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="he" href="https://www.rapidtables.org/he/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="hi" href="https://www.rapidtables.org/hi/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="hr" href="https://www.rapidtables.org/hr/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="hu" href="https://www.rapidtables.org/hu/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="id" href="https://www.rapidtables.org/id/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="it" href="https://www.rapidtables.org/it/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ja" href="https://www.rapidtables.org/ja/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="kn" href="https://www.rapidtables.org/kn/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ko" href="https://www.rapidtables.org/ko/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="lt" href="https://www.rapidtables.org/lt/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="lv" href="https://www.rapidtables.org/lv/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ml" href="https://www.rapidtables.org/ml/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="mr" href="https://www.rapidtables.org/mr/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ms" href="https://www.rapidtables.org/ms/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="nl" href="https://www.rapidtables.org/nl/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="no" href="https://www.rapidtables.org/no/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="pl" href="https://www.rapidtables.org/pl/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="pt" href="https://www.rapidtables.org/pt/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ro" href="https://www.rapidtables.org/ro/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ru" href="https://www.rapidtables.org/ru/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="sk" href="https://www.rapidtables.org/sk/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="sl" href="https://www.rapidtables.org/sl/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="sr" href="https://www.rapidtables.org/sr/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="sv" href="https://www.rapidtables.org/sv/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ta" href="https://www.rapidtables.org/ta/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="te" href="https://www.rapidtables.org/te/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="th" href="https://www.rapidtables.org/th/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="tr" href="https://www.rapidtables.org/tr/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="uk" href="https://www.rapidtables.org/uk/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="ur" href="https://www.rapidtables.org/ur/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="vi" href="https://www.rapidtables.org/vi/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.rapidtables.org/zh-CN/calc/math/Square_Root_Calculator.html" />
+    <link rel="alternate" hreflang="zh-TW" href="https://www.rapidtables.org/zh-TW/calc/math/Square_Root_Calculator.html" />
+    <script async src="/js/counter.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YVDBW7SMW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1YVDBW7SMW');
+    </script>
+    <script data-ad-client="ca-pub-2898904755959147" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div>
+            <div id="logo" class="box">
+                <p>
+                    <a href="/zh-TW/">RapidTables</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="nav">
+
+            <a href="/zh-TW/">主頁</a>›<a href="../index.html">計算器</a>›<a href="index.html">數學計算器</a>›平方根計算器
+        </div>
+        <div id="top-ad">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2898904755959147" data-ad-slot="7679670858" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        </div>
+        <div id="lcol">
+            <div id="doc">
+
+                <h1>平方根計算器</h1>
+                <p>在線平方根計算器。計算x的平方根。</p>
+                <p>x的平方根由以下公式給出：</p>
+                <p class="math">√ <span style="text-decoration: overline"><i>X</i></span> = <i>- [R</i></p>
+                <p>輸入輸入數字（x），然後按<span style="font-size: 1.5em">&nbsp;=</span>&nbsp; 按鈕：</p>
+                <form name="calcform" autocomplete="off">
+                    <table class="calc">
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold; font-size: 2em;">√</td>
+                                <td><input type="number" step="any" name="x" class="intext"></td>
+                                <td><input onclick="calc5()" type="button" value=" = " class="btn"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><input onclick="calc5()" type="button" value="Calculate" class="btn"> <input onclick="setfocus()" type="reset" value="Reset" class="btn"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><input type="text" name="y" class="outtext" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <p>&nbsp;</p>
+                <hr>
+                <h2>也可以看看</h2>
+                <ul class="seealso">
+                    <li><a href="Root_Calculator.html">根計算器</a></li>
+                    <li><a href="Exponent_Calculator.html">指數計算器</a></li>
+                    <li><a href="Log_Calculator.html">對數計算器</a></li>
+                </ul>
+                <script src="../calc2.js"></script>
+                <script>
+                    function calcfunc(x) {
+                        return Math.pow(x, 0.5);
+                    }
+                </script>
+
+                <div id="share">
+                    <a id="sharefb" href="#" title="臉書" target="_blank"><img src="../../lib/icons/glyphicons_all/social/png/glyphicons-social-31-facebook%402x.png" alt="臉書"></a>
+                    <a id="sharetw" href="#" title="推特" target="_blank"><img src="../../lib/icons/glyphicons_all/social/png/glyphicons-social-32-twitter%402x.png" alt="推特"></a>
+                    <a id="sharewa" href="#" title="WhatsApp的" target="_blank"><img src="../../lib/icons/glyphicons_all/social/png/glyphicons-social-62-whatsapp%402x.png" alt="WhatsApp的"></a>
+                    <a id="shareml" href="#" title="電子郵件"><img src="../../lib/icons/glyphicons_all/social/png/glyphicons-social-14-e-mail-envelope%402x.png" alt="電子郵件"></a>
+                </div>
+                <div id="ban-ad">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2898904755959147" data-ad-slot="6451183811" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                </div>
+
+
+            </div>
+            <div id="fdbk">
+                <h2>
+                    <a id="feedback"></a>撰寫如何改善此頁面</h2>
+                <form id="fdbkform">
+                    <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required class="form-control"></textarea>
+                    <span id="fdbkmsg"></span>
+                    <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">提交反饋</button>
+                </form>
+            </div>
+        </div>
+        <div id="rcol">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2898904755959147" data-ad-slot="3477342598" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+            <h5>數學計算器</h5>
+            <ul>
+                <li><a href="calculator.html">數學計算器</a></li>
+                <li><a href="Add_Calculator.html">加法計算器</a></li>
+                <li><a href="anti-log-calculator.html">反日誌計算器</a></li>
+                <li><a href="Arccos_Calculator.html">Arccos計算器</a></li>
+                <li><a href="Arcsin_Calculator.html">Arcsin計算器</a></li>
+                <li><a href="Arctan_Calculator.html">Arctan計算器</a></li>
+                <li><a href="Cos_Calculator.html">餘弦計算器</a></li>
+                <li><a href="division-calculator.html">除法計算器</a></li>
+                <li><a href="exponential-growth-calculator.html">指數增長計算器</a></li>
+                <li><a href="Exponent_Calculator.html">指數計算器</a></li>
+                <li><a href="Factorial_Calculator.html">階乘計算器</a></li>
+                <li><a href="fractions-calculator.html">分數計算器</a></li>
+                <li><a href="Ln_Calc.html">Ln計算器</a></li>
+                <li><a href="Log_Calculator.html">日誌計算器</a></li>
+                <li><a href="multiplication-calculator.html">乘法計算器</a></li>
+                <li><a href="Percentage_Calculator.html">百分比計算器</a></li>
+                <li><a href="Quadratic_Calculator.html">二次方程求解器</a></li>
+                <li><a href="Root_Calculator.html">根計算器</a></li>
+                <li><a href="Sin_Calculator.html">正弦計算器</a></li>
+                <li><a href="Square_Root_Calculator.html">平方根計算器</a></li>
+                <li><a href="subtraction-calculator.html">減法計算器</a></li>
+                <li><a href="Tan_Calculator.html">切線計算器</a></li>
+            </ul>
+            <h5>快速表格</h5>
+            <ul>
+                <li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.org">推薦網站</a></li>
+                <li><a href="#feedback">發送反饋</a></li>
+                <li><a href="../../about/about.html">關於</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div id="footer">
+        <a href="/zh-TW/">首頁</a>| <a href="../../web/index.html">網頁</a>| <a href="../../math/index.html">數學</a>| <a href="../../electric/index.html">電力</a>| <a href="../index.html">計算器</a>| <a href="../../convert/index.html">轉換器</a>| <a href="../../tools/index.html">工具類</a>
+        <p>﻿<span class="dropdown">
+<button class="dropbtn">🏳️<span class="caret"></span></button>
+            <span class="dropdown-content">
+<a href="/calc/math/Square_Root_Calculator.html">Español</a>
+<a href="/ar/calc/math/Square_Root_Calculator.html">العربية</a>
+<a href="/bg/calc/math/Square_Root_Calculator.html">български език</a>
+<a href="/bn/calc/math/Square_Root_Calculator.html">বাংলা</a>
+<a href="/ca/calc/math/Square_Root_Calculator.html">català, valencià</a>
+<a href="/cs/calc/math/Square_Root_Calculator.html">čeština, český jazyk</a>
+<a href="/da/calc/math/Square_Root_Calculator.html">dansk</a>
+<a href="/de/calc/math/Square_Root_Calculator.html">Deutsch</a>
+<a href="/el/calc/math/Square_Root_Calculator.html">ελληνικά</a>
+<a href="/et/calc/math/Square_Root_Calculator.html">eesti, eesti keel</a>
+<a href="/fi/calc/math/Square_Root_Calculator.html">Finnish</a>
+<a href="/tl/calc/math/Square_Root_Calculator.html">Wikang Tagalog</a>
+<a href="/fr/calc/math/Square_Root_Calculator.html">français, langue française</a>
+<a href="/gu/calc/math/Square_Root_Calculator.html">ગુજરાતી</a>
+ <a href="/he/calc/math/Square_Root_Calculator.html">עברית</a>
+<a href="/hi/calc/math/Square_Root_Calculator.html">हिन्दी, हिंदी</a>
+<a href="/hr/calc/math/Square_Root_Calculator.html">hrvatski jezik</a>
+<a href="/hu/calc/math/Square_Root_Calculator.html">magyar</a>
+<a href="/id/calc/math/Square_Root_Calculator.html">Bahasa Indonesia</a>
+<a href="/it/calc/math/Square_Root_Calculator.html">Italiano</a>
+<a href="/ja/calc/math/Square_Root_Calculator.html">日本語 (にほんご)</a>
+<a href="/kn/calc/math/Square_Root_Calculator.html">ಕನ್ನಡ</a>
+<a href="/ko/calc/math/Square_Root_Calculator.html">한국어</a>
+<a href="/lt/calc/math/Square_Root_Calculator.html">lietuvių kalba</a>
+<a href="/lv/calc/math/Square_Root_Calculator.html">latviešu valoda</a>
+<a href="/ml/calc/math/Square_Root_Calculator.html">മലയാളം</a>
+<a href="/mr/calc/math/Square_Root_Calculator.html">मराठी</a>
+<a href="/ms/calc/math/Square_Root_Calculator.html">Bahasa Melayu</a>
+<a href="/nl/calc/math/Square_Root_Calculator.html">Nederlands, Vlaams</a>
+<a href="/no/calc/math/Square_Root_Calculator.html">Norsk</a>
+<a href="/pl/calc/math/Square_Root_Calculator.html">język polski, polszczyzna</a>
+<a href="/pt/calc/math/Square_Root_Calculator.html">Português</a>
+<a href="/ro/calc/math/Square_Root_Calculator.html">Română</a>
+<a href="/ru/calc/math/Square_Root_Calculator.html">русский</a>
+<a href="/sk/calc/math/Square_Root_Calculator.html">Slovenčina, Slovenský Jazyk</a>
+<a href="/sl/calc/math/Square_Root_Calculator.html">Slovenski Jezik, Slovenščina</a>
+<a href="/sr/calc/math/Square_Root_Calculator.html">српски језик</a>
+<a href="/sv/calc/math/Square_Root_Calculator.html">Svenska</a>
+<a href="/ta/calc/math/Square_Root_Calculator.html">தமிழ்</a>
+<a href="/te/calc/math/Square_Root_Calculator.html">తెలుగు</a>
+<a href="/th/calc/math/Square_Root_Calculator.html">ไทย</a>
+<a href="/tr/calc/math/Square_Root_Calculator.html">Türkçe</a>
+<a href="/uk/calc/math/Square_Root_Calculator.html">Українська</a>
+<a href="/ur/calc/math/Square_Root_Calculator.html">اردو</a>
+<a href="/vi/calc/math/Square_Root_Calculator.html">Tiếng Việt</a>
+<a href="/zh-CN/calc/math/Square_Root_Calculator.html">中文（简体）</a>
+<a href="/zh-TW/calc/math/Square_Root_Calculator.html">中文（繁體）</a>
+</span>
+            </span>
+            | &copy; 2021
+            <a href="/zh-TW/">RapidTables.org</a> | <a href="../../about/about.html" rel="nofollow">關於</a>| <a href="../../about/terms.html" rel="nofollow">使用條款</a>| <a href="../../about/privacy.html" rel="nofollow">隱私政策</a>| <a href="../../about/cookies.html"
+                rel="nofollow">管理Cookies</a>
+        </p>
+    </div>
+    <div id="banner">
+        <div>
+            該網站使用Cookie來改善您的體驗，分析流量和展示廣告。<a href="../../about/privacy.html">學到更多</a>
+        </div>
+        <div>
+            <a id="banokbtn">確定</a> <a id="bansetbtn" href="../../about/cookies.html">管理設置</a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
